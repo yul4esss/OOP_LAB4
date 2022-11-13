@@ -15,8 +15,8 @@ private:
 
 public:
 	void SetStorageAmount() {
-		cout << "Оберiть обсяг пам'ятi носiя" << endl;
-		cout << "1 - 256 ГБ, 2 - 512 ГБ, 3 - 1 ТБ, 4 - 2 ТБ" << endl;
+		cout << "Choose GB size for our device" << endl;
+		cout << "1 - 256 GB, 2 - 512 GB, 3 - 1 TB, 4 - 2 TB" << endl;
 		cin >> option;
 		if (option == 1) {
 			storageAmount = 256;
@@ -31,7 +31,7 @@ public:
 			storageAmount = 2048;
 		}
 		else {
-			cout << "Оберiть одну iз доступних опцiй" << endl;
+			cout << "Choose one of the available options" << endl;
 			exit(0);
 		}
 	}
@@ -50,9 +50,9 @@ public:
 
 	//constructor 
 	hardDrive() {
-		cout << "Введiть назву фiрми вiнчестера: " << endl;
+		cout << "Input firm name for the hard drive: " << endl;
 		cin >> hardFirm;
-		cout << "Введiть швидкiсть обертання шпинделя: " << endl;
+		cout << "Input the amount of revolutions per minute: " << endl;
 		cin >> rotationSpeed;	
 	}
 
@@ -82,9 +82,9 @@ public:
 
 	//constructor 
 	opticalDisk() {
-		cout << "Введiть назву фiрми оптичного диску: " << endl;
+		cout << "Input firm name for the optic disk: " << endl;
 		cin >> opticalFirm;
-		cout << "Введiть кiлькiсть цилiндрiв: " << endl;
+		cout << "Input amount of cylinders: " << endl;
 		cin >> amountOfCylinders;
 	}
 
@@ -108,7 +108,7 @@ private:
 
 // overloading << and >> operators
 ostream& operator<<(ostream& out, hardDrive& drive) {
-	out << "Назва фiрми: " << drive.GetHardFirmName() << "\tШвидкiсть об/хв: " <<  drive.GetRotationSpeed() << "\tРозмiр ГБ: " << drive.GetStorageAmount();
+	out << "Firm name: " << drive.GetHardFirmName() << "\tThe amount of rev/min: " <<  drive.GetRotationSpeed() << "\tSize GB: " << drive.GetStorageAmount();
 	return out;
 }
 
@@ -118,7 +118,7 @@ istream& operator >>(istream& input, hardDrive& drive) {
 }
 
 ostream& operator<<(ostream& out, opticalDisk& optical) {
-	out << "Назва фiрми: " << optical.GetOpticalFirmName() << "\tКiлькiсть цилiндрiв: " << optical.GetAmountOfCylinders() << "\tРозмiр ГБ: " << optical.GetStorageAmount();
+	out << "Firm name: " << optical.GetOpticalFirmName() << "\tAmount of cylinders: " << optical.GetAmountOfCylinders() << "\tSize GB: " << optical.GetStorageAmount();
 	return out;
 }
 
@@ -157,13 +157,13 @@ int main() {
 	//checking if the path to our file is correct
 	//if it's not correct, then we output message about an error
 	if (!record.is_open()) {
-		cout << "Не вдалося вiдкрити файл" << endl;
+		cout << "Ooops incorrect path, check your code" << endl;
 	}
 	//if the path is correct, we continue working and input info about our objects into file
 	else {
-		cout << "Запис здiйснено успiшно" << endl;
-		record << "Вiнчестер" << "\n" << hardD << endl;
-		record << "Оптичний диск" << "\n" << opticalD << endl;
+		cout << "The recording was made successfully" << endl;
+		record << "Hard drive info" << "\n" << hardD << endl;
+		record << "Optical disk info" << "\n" << opticalD << endl;
 	}
 
 	//closing file
