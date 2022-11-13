@@ -15,7 +15,7 @@ private:
 
 public:
 	void SetStorageAmount() {
-		cout << "Choose GB size for our device" << endl;
+		cout << "Choose GB size for the device" << endl;
 		cout << "1 - 256 GB, 2 - 512 GB, 3 - 1 TB, 4 - 2 TB" << endl;
 		cin >> option;
 		if (option == 1) {
@@ -31,7 +31,7 @@ public:
 			storageAmount = 2048;
 		}
 		else {
-			cout << "Choose one of the available options" << endl;
+			cout << "Please, choose one of the available options" << endl;
 			exit(0);
 		}
 	}
